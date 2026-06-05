@@ -8,3 +8,4 @@ echo -e "\nBuilding src/polyfill.js"
 build_js src/polyfill.js polyfill.js
 
 echo -e "\nDone"
+

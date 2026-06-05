@@ -14,11 +14,16 @@ build_js() {
     if [[ "${MODE:-development}" == production ]]; then
 
       npx rolldown "${output/%.js/.optimized.js}" -o "$output" -f iife -m
+
     else
 
       npx rolldown "${output/%.js/.optimized.js}" -o "$output" -f iife
+
     fi
 
     rm "${output/%.js/.optimized.js}"
+
   fi
+
 }
+
