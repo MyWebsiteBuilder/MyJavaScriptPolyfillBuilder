@@ -2,7 +2,7 @@
 
 set -euo pipefail
 
-build_js() {
+build() {
 
   input="$1"
   output="$2"
