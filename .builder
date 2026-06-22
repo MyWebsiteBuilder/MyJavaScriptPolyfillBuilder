@@ -4,8 +4,8 @@ set -euo pipefail
 
 build() {
 
-  input="$1"
-  output="$2"
+  local input="$1"
+  local output="$2"
 
   if [ -f "$input" ]; then
 
