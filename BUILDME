@@ -5,7 +5,7 @@ set -euo pipefail
 source .builder
 
 echo -e "\nBuilding src/polyfill.js"
-build src/polyfill.js polyfill.js
+build src/polyfill.js dst/polyfill.js
 
 echo -e "\nDone"
 
