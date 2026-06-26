@@ -7,11 +7,11 @@ build() {
   local input="$1"
   local output="$2"
 
-  if [ -f "$input" ]; then
+  if [[ -f "$input" ]]; then
 
     npx swc "$input" -o "${output/%.js/.optimized.js}" -q
 
-    if [[ "${MODE:-development}" == production ]]; then
+    if [[ "${MODE:-development}" == "production" ]]; then
 
       npx rolldown "${output/%.js/.optimized.js}" -o "$output" -f iife -m
 
