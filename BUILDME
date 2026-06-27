@@ -4,7 +4,11 @@ set -euo pipefail
 
 source .builder
 
+mkdir -p dst/
+
 printf "Building src/polyfill.js\n"
+
 build src/polyfill.js dst/polyfill.js
+
 printf "Done\n"
 
