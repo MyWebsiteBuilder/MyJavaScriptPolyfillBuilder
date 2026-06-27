@@ -9,6 +9,8 @@ build() {
 
   if [[ -f "$src" ]]; then
 
+    mkdir -p "${dst%/*}"/
+
     npx swc "$src" -o "${dst/%.js/.optimized.js}" -q
 
     if [[ "${MODE:-development}" == production ]]; then
