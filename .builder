@@ -4,24 +4,24 @@ set -euo pipefail
 
 build() {
 
-  local input="$1"
-  local output="$2"
+  local src="$1"
+  local dst="$2"
 
-  if [[ -f "$input" ]]; then
+  if [[ -f "$src" ]]; then
 
-    npx swc "$input" -o "${output/%.js/.optimized.js}" -q
+    npx swc "$src" -o "${dst/%.js/.optimized.js}" -q
 
-    if [[ "${MODE:-development}" == "production" ]]; then
+    if [[ "${MODE:-development}" == production ]]; then
 
-      npx rolldown "${output/%.js/.optimized.js}" -o "$output" -f iife -m
+      npx rolldown "${dst/%.js/.optimized.js}" -o "$dst" -f iife -m
 
     else
 
-      npx rolldown "${output/%.js/.optimized.js}" -o "$output" -f iife
+      npx rolldown "${dst/%.js/.optimized.js}" -o "$dst" -f iife
 
     fi
 
-    rm "${output/%.js/.optimized.js}"
+    rm "${dst/%.js/.optimized.js}"
 
   fi
 
