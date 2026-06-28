@@ -4,9 +4,13 @@ set -euo pipefail
 
 source .builder
 
-printf "Building src/polyfill.js\n"
+if [[ -f src/polyfill.js ]]; then
 
-build src/polyfill.js dst/polyfill.js
+  printf "Building src/polyfill.js\n"
+
+  build src/polyfill.js dst/polyfill.js
+
+fi
 
 printf "Done\n"
 
