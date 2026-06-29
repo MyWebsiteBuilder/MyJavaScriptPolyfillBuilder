@@ -2,13 +2,25 @@
 
 set -euo pipefail
 
-source .builder
-
 if [[ -f src/polyfill.js ]]; then
 
   printf "Building src/polyfill.js\n"
 
-  build src/polyfill.js dst/polyfill.js
+  mkdir -p dst/
+
+  npx swc src/polyfill.js -o dst/polyfill.optimized.js -q
+
+  if [[ "${MODE:-development}" == production ]]; then
+
+    npx rolldown dst/polyfill.optimized.js -o dst/polyfill.js -f iife -m
+
+  else
+
+    npx rolldown dst/polyfill.optimized.js -o dst/polyfill.js -f iife
+
+  fi
+
+  rm dst/polyfill.optimized.js
 
 fi
 
