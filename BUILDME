@@ -8,7 +8,7 @@ if [[ -f src/polyfill.js ]]; then
 
   mkdir -p dst/
 
-  npx swc src/polyfill.js -o dst/polyfill.optimized.js -q
+  npx swc src/polyfill.js -o dst/polyfill.optimized.js
 
   if [[ "${MODE:-development}" == production ]]; then
 
